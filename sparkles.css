@@ -101,6 +101,7 @@ body {
 }
 
 .section--sparkles {
+  pointer-events:none;        
   min-height: 400px;
   width: 100%;
 }
