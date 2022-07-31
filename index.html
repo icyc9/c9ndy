@@ -20,7 +20,7 @@
       <div class="sparkles"></div>
     </section>
     <div class="in-middle">
-      <img onclick="document.getElementById('splat').play()" class="logo" src="c9-splatter-logo-faster.gif"/>
+      <img id="splatLogo" onclick="document.getElementById('splat').play()" class="logo" src="c9 splatter logo faster.gif"/>
     </div>
   </body>
   
@@ -28,7 +28,7 @@
   .logo {
     width: 100%;
     height: auto;
-    max-width: 200px;
+    max-width: 300px;
     cursor: pointer;
   }
 
@@ -54,6 +54,9 @@
   </style>
 
   <script>
+    var splatLogo = document.getElementById('splatLogo');
+    splatLogo.src = splatLogo.src.replace(/\?.*$/,"")+"?x="+Math.random();
+
     var audio = document.getElementById("splat");
     audio.volume = 0.2;
 
