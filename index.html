@@ -24,25 +24,63 @@
         left: 0;
         z-index: -9999;
       }
+     #image-container {
+        width: 100%;
+        max-width: 900px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        /*transition: opacity 2s ease-in-out, transform 2s ease-in-out;*/
+        animation: fade-out 0.5s linear 1s forwards;
+
+      }
+
+/*      @keyframes fade-out {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+      }*/
 
       img {
         width: 100%;
-        max-width: 600px;
+        max-width: 900px;
         height: auto;
         display: block;
         margin-left: auto;
         margin-right: auto;
         margin-top: 60%;
       }
+      #comingsoon {
+        width: 50%;
+        margin-top: 0;
+      }
+      h1{
+        color: white;
+        font-size: 100px;
+      }
       #container { position: absolute; float: left; clear: both; width: 100%; height: 350px; z-index: -1; left no-repeat; }
     </style>
 
     <body>
+      <div id="image-container">
+      <img src="otclogo.png">
+      <img id="comingsoon" src="COMINGSOON.png"/>
+      <!-- <h1>COMING SOON</h1> -->
+    </div>
 <!--       <img src="https://cdn.shopify.com/s/files/1/0555/2370/5138/files/kawtenakdny.png?v=1667735709&width=500"></img> -->
       <div id="container">
       </div>
     </body>
     <script>
+    // setTimeout(() => {
+      // window.location.href = 'https://offthecloud.myshopify.com/';
+    // }, 3000);
+
     let scene,camera, renderer, cloudParticles = [], flash, rain, rainGeo, rainCount = 15000;
     function init() {
 
@@ -90,7 +128,7 @@
       rain = new THREE.Points(rainGeo,rainMaterial);
       scene.add(rain);
       let loader = new THREE.TextureLoader();
-      loader.load("https://i.ibb.co/T1YsxdQ/smoke-1.png", function(texture){
+      loader.load("smoke.png", function(texture){
 
         cloudGeo = new THREE.PlaneBufferGeometry(500,500);
         cloudMaterial = new THREE.MeshLambertMaterial({
